@@ -85,29 +85,6 @@
     height: 100%;
     margin: 0 4px;
     user-select: none;
-    // .sortable-ghost는 SortableJS에서 생성하는 선택자입니다.
-    // Svelte에서는 Hash가 자동으로 붙기 때문에 :global()를 사용해,
-    // .sortable-ghost 선택자에 Hash가 붙지 않도록 합니다.
-    :global(&.sortable-ghost) {
-      opacity: 0.2;
-      position: relative;
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        border-radius: 4px;
-      }
-    }
-    // .sortable-chosen는 SortableJS에서 생성하는 선택자입니다.
-    // Svelte에서는 Hash가 자동으로 붙기 때문에 :global()를 사용해,
-    // .sortable-chosen 선택자에 Hash가 붙지 않도록 합니다.
-    :global(&.sortable-chosen) {
-      cursor: move;
-    }
     .list__inner {
       // 카드 목록 영역 크기가 자동 조절이 되도록,
       // Flexible box로 만들고 수직 정렬합니다.
@@ -132,5 +109,28 @@
         margin-bottom: 10px;
       }
     }
+  }
+  // .sortable-ghost는 SortableJS에서 생성하는 선택자입니다.
+  // Svelte에서는 Hash가 자동으로 붙기 때문에 :global()를 사용해,
+  // .sortable-ghost 선택자에 Hash가 붙지 않도록 합니다.
+  :global(.list.sortable-ghost) {
+    opacity: 0.2;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-radius: 4px;
+    }
+  }
+  // .sortable-chosen는 SortableJS에서 생성하는 선택자입니다.
+  // Svelte에서는 Hash가 자동으로 붙기 때문에 :global()를 사용해,
+  // .sortable-chosen 선택자에 Hash가 붙지 않도록 합니다.
+  :global(.list.sortable-chosen) {
+    cursor: move;
   }
 </style>

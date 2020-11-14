@@ -1,5 +1,4 @@
 const production = process.env.NODE_ENV === 'production'
-
 function babelOptions() {
   return {
     plugins: production
@@ -7,7 +6,6 @@ function babelOptions() {
       : []
   }
 }
-
 module.exports = {
   mount: {
     src: '/_dist_',
