@@ -1,4 +1,5 @@
 const production = process.env.NODE_ENV === 'production'
+
 function babelOptions() {
   return {
     plugins: production
@@ -6,24 +7,26 @@ function babelOptions() {
       : []
   }
 }
+
 module.exports = {
   mount: {
-    public: '/',
-    src: '/_dist_'
+    src: '/_dist_',
+    public: '/'
   },
   plugins: [
     ['@snowpack/plugin-svelte', {
       preprocess: require('svelte-preprocess')({
         scss: {
-          prependData: '@import "./src/scss/main.scss";',
+          prependData: '@import "./src/scss/main.scss";'
         },
         postcss: {
           plugins: [
+            // Check package.json browserslist
             require('autoprefixer')()
           ]
         },
         babel: babelOptions()
-     })
+      })
     }],
     ['@snowpack/plugin-babel', {
       transformOptions: babelOptions()
@@ -35,4 +38,4 @@ module.exports = {
   alias: {
     '~': './src'
   }
-}
+};

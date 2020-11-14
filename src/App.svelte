@@ -4,7 +4,7 @@
 
   Object.assign(document.body.style, {
     backgroundColor: 'darkgray',
-    backgroundImage: 'url(/images/bg.jpg)',
+    //backgroundImage: 'url(/images/bg.jpg)',
     backgroundSize: 'cover'
   })
 </script>
